@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import scrollTop from '../helpers/scrollTop'
 import displayINRCurrency from '../helpers/displayCurrency'
-import Context from '../context'
+import {Context} from '../context'
 import addToCart from '../helpers/addToCart'
 import { Link } from 'react-router-dom'
 

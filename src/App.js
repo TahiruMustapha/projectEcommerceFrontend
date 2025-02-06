@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useCallback, useEffect, useState } from "react";
 import SummaryApi from "./common";
-import Context from "./context";
+import {Context} from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
 

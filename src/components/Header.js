@@ -9,7 +9,7 @@ import SummaryApi from '../common';
 import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice';
 import ROLE from '../common/role';
-import Context from '../context';
+import {Context} from '../context';
 
 const Header = () => {
   const user = useSelector(state => state?.user?.user)
@@ -27,7 +27,7 @@ const Header = () => {
       method : SummaryApi.logout_user.method,
       credentials : 'include'
     })
-    
+
     const data = await fetchData.json()
 
     if(data.success){

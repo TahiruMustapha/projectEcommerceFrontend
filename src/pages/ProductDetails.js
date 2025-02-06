@@ -7,7 +7,7 @@ import displayINRCurrency from '../helpers/displayCurrency';
 import VerticalCardProduct from '../components/VerticalCardProduct';
 import CategroyWiseProductDisplay from '../components/CategoryWiseProductDisplay';
 import addToCart from '../helpers/addToCart';
-import Context from '../context';
+import {Context} from '../context';
 
 const ProductDetails = () => {
   const [data,setData] = useState({

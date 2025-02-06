@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import SummaryApi from "../common";
-import Context from "../context";
+import {Context} from "../context";
 import displayINRCurrency from "../helpers/displayCurrency";
 import { MdDelete } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom"; // Import useNavigate

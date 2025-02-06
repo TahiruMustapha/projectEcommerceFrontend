@@ -4,7 +4,7 @@ import displayINRCurrency from '../helpers/displayCurrency'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import addToCart from '../helpers/addToCart'
-import Context from '../context'
+import {Context} from '../context'
 import scrollTop from '../helpers/scrollTop'
 
 const CategroyWiseProductDisplay = ({category, heading}) => {
