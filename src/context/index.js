@@ -6,7 +6,7 @@ export const ContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [cart, setCart] = useState([]);
 
-    // ✅ Fetch user details from backend
+    // Fetch user details from backend
     const fetchUserDetails = async () => {
         try {
             const response = await fetch(SummaryApi.current_user.url, {
@@ -23,7 +23,7 @@ export const ContextProvider = ({ children }) => {
         }
     };
 
-    // ✅ Fetch cart details
+    // Fetch cart details
     const fetchUserAddToCart = async () => {
         try {
             const response = await fetch(SummaryApi.addToCartProduct.url, {

@@ -49,7 +49,7 @@ const Login = () => {
              localStorage.setItem("user", JSON.stringify(user));
 
              // Store in cookies
-            Cookies.set("token", token, { expires: 7 }); // Expires in 7 days
+            // Cookies.set("token", token, { expires: 7 }); // Expires in 7 days
             // Cookies.set("user", JSON.stringify(user), { expires: 7 });
             // Save user in Redux
             dispatch(setUserDetails(user));
