@@ -6,7 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import {Context} from '../context';
-
+import Cookies from "js-cookie";
+import { useDispatch } from 'react-redux';
+import { setUserDetails } from "../store/userSlice";
 const Login = () => {
     const [showPassword,setShowPassword] = useState(false)
     const [data,setData] = useState({
@@ -15,7 +17,7 @@ const Login = () => {
     })
     const navigate = useNavigate()
     const { fetchUserDetails, fetchUserAddToCart } = useContext(Context)
-
+ const dispatch = useDispatch()
     const handleOnChange = (e) =>{
         const { name , value } = e.target
 
@@ -26,8 +28,6 @@ const Login = () => {
             }
         })
     }
-
-
     const handleSubmit = async(e) =>{
         e.preventDefault()
 
@@ -43,6 +43,16 @@ const Login = () => {
         const dataApi = await dataResponse.json()
 
         if(dataApi.success){
+            const {token,user} = dataApi;
+             // ✅ Store in localStorage
+             localStorage.setItem("token", token);
+             localStorage.setItem("user", JSON.stringify(user));
+
+             // ✅ Store in cookies
+            Cookies.set("token", token, { expires: 7 }); // Expires in 7 days
+            Cookies.set("user", JSON.stringify(user), { expires: 7 });
+            // ✅ Save user in Redux
+            dispatch(setUserDetails(user));
             toast.success(dataApi.message)
             navigate('/')
             fetchUserDetails()
