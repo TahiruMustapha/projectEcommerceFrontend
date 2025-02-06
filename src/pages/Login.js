@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import {Context} from '../context';
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useDispatch } from 'react-redux';
 import { setUserDetails } from "../store/userSlice";
 const Login = () => {
@@ -43,9 +43,9 @@ const Login = () => {
         const dataApi = await dataResponse.json()
 
         if(dataApi.success){
-            const {token,user} = dataApi;
+            const {user} = dataApi;
              //  Store in localStorage
-             localStorage.setItem("token", token);
+            //  localStorage.setItem("token", token);
              localStorage.setItem("user", JSON.stringify(user));
 
              // Store in cookies
