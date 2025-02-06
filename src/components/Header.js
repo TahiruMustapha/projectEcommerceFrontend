@@ -34,18 +34,17 @@ const Header = () => {
       const data = await response.json();
 
       if (data.success) {
-        // ✅ Remove user data from Redux
+        // Remove user data from Redux
         dispatch(setUserDetails(null));
 
-        // ✅ Remove from localStorage
+        // Remove from localStorage
         localStorage.removeItem("user");
         localStorage.removeItem("token");
 
-        // ✅ Remove from cookies
+        // Remove from cookies
         Cookies.remove("token");
-        Cookies.remove("user");
 
-        // ✅ Show success toast & navigate
+        // Show success toast & navigate
         toast.success(data.message);
         navigate("/");
       } else {
