@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { setUserDetails } from "../store/userSlice";
 import ROLE from "../common/role";
 import { Context } from "../context";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 const Header = () => {
   const user = useSelector((state) => state?.user?.user);
@@ -42,7 +42,7 @@ const Header = () => {
         localStorage.removeItem("token");
 
         // Remove from cookies
-        Cookies.remove("token");
+        // Cookies.remove("token");
 
         // Show success toast & navigate
         toast.success(data.message);
