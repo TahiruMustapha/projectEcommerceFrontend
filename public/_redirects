@@ -1,3 +1,1 @@
 /api/*  https://projectcommercebackend.onrender.com/api/:splat  200
-Access-Control-Allow-Origin: https://spectacular-kleicha-d2752f.netlify.app/
-  Access-Control-Allow-Credentials: true
