@@ -32,6 +32,7 @@ const PaystackPayment = ({ totalAmount, cartItems }) => {
   const onSuccess = async () => {
     await clearUserCart();
     window.location.href = "/cart/checkout/success";
+    // <Navigate to="/cart/checkout/success" replace />
   };
 
   const componentProps = {
