@@ -12,6 +12,8 @@ import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
 import Checkout from "../pages/Checkout";
+import Success from "../pages/Success";
+import ProtectedRoutes from "../components/ProtectedRoutes";
 
 const router = createBrowserRouter([
   {
@@ -44,13 +46,32 @@ const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: (
+          <ProtectedRoutes>
+            <Cart />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "search",
         element: <SearchProduct />,
       },
-      { path: "cart/checkout", element: <Checkout /> },
+      {
+        path: "cart/checkout",
+        element: (
+          <ProtectedRoutes>
+            <Checkout />
+          </ProtectedRoutes>
+        ),
+      },
+      {
+        path: "cart/checkout/success",
+        element: (
+          <ProtectedRoutes>
+            <Success />
+          </ProtectedRoutes>
+        ),
+      },
       {
         path: "admin-panel",
         element: <AdminPanel />,
@@ -63,7 +84,6 @@ const router = createBrowserRouter([
             path: "all-products",
             element: <AllProducts />,
           },
-       
         ],
       },
     ],

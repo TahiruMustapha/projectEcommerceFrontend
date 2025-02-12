@@ -69,6 +69,10 @@ const SummaryApi = {
         url : `/api/delete-cart-product`,
         method : 'post'
     },
+    clearUserCart:{
+        url:`/api/delete-user-cart`,
+        method : 'delete'
+    },
     searchProduct : {
         url : `/api/search`,
         method : 'get'
@@ -76,6 +80,14 @@ const SummaryApi = {
     filterProduct : {
         url : `/api/filter-product`,
         method : 'post'
+    },
+    clearCart:{
+        url : `/api/cart-clear`,
+        method : 'delete'
+    },
+    checkAuth:{
+        url:"/api/check-auth",
+        method:"get"
     }
 }
 

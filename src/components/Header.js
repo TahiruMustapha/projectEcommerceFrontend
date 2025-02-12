@@ -11,10 +11,9 @@ import { setUserDetails } from "../store/userSlice";
 import ROLE from "../common/role";
 import { Context } from "../context";
 
-
 const Header = () => {
   const user = useSelector((state) => state?.user?.user);
-
+  
   const [menuDisplay, setMenuDisplay] = useState(false);
   const context = useContext(Context);
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const Header = () => {
   const searchQuery = URLSearch.getAll("q");
   const [search, setSearch] = useState(searchQuery);
   const dispatch = useDispatch();
-  
+
   const handleLogout = async () => {
     try {
       const response = await fetch(SummaryApi.logout_user.url, {

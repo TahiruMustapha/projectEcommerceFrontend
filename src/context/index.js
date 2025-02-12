@@ -39,6 +39,35 @@ export const ContextProvider = ({ children }) => {
             console.error("Error fetching cart:", error);
         }
     };
+     // Function to clear the cart after successful payment
+     const clearCart = async () => {
+        try {
+            const response = await fetch(SummaryApi.clearCart.url, {
+                method: SummaryApi.clearCart.method, // Should be DELETE or POST
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json", // Add headers if needed
+                },
+    
+            });
+    
+             // Check if the response is successful
+        if (!response.ok) {
+            const errorData = await response.json(); // Parse error response
+            throw new Error(errorData.error || "Failed to clear cart");
+        }
+        const responseData = await response.json(); // Parse success response
+        console.log("Cart successfully cleared:", responseData.message);
+    
+           // Update frontend cart state
+        setCart([]);
+           
+        } catch (error) {
+            console.error("Error clearing cart:", error);
+            // Optionally, show an error message to the user
+        alert(error.message || "An error occurred while clearing the cart");
+        }
+    };
 
     useEffect(() => {
         fetchUserDetails(); // Fetch user when app loads
@@ -46,7 +75,7 @@ export const ContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <Context.Provider value={{ user, cart, fetchUserDetails, fetchUserAddToCart }}>
+        <Context.Provider value={{ user, cart, fetchUserDetails, fetchUserAddToCart,clearCart }}>
             {children}
         </Context.Provider>
     );
