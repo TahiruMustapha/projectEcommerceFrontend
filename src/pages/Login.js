@@ -33,7 +33,9 @@ const Login = () => {
 
         const dataResponse = await fetch(SummaryApi.signIn.url,{
             method : SummaryApi.signIn.method,
-            credentials : 'include',
+            // credentials : 'include',
+
+            withCredentials : true,
             headers : {
                 "content-type" : "application/json"
             },
