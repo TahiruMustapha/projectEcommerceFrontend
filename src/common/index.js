@@ -33,6 +33,10 @@ const SummaryApi = {
         url : `/api/get-product`,
         method : 'get'
     },
+    deleteProductCard:{
+        url : `/api/delete-product-card`,
+        method : 'delete'
+    },
     updateProduct : {
         url : `/api/update-product`,
         method  : 'post'
