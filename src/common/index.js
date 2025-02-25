@@ -13,6 +13,14 @@ const SummaryApi = {
         url : `/api/user-details`,
         method : "get"
     },
+    sendReceiptEmail:{
+        url : `/api/send-receipt`,
+        method : "post"
+    },
+    sendSmsUrl:{
+        url : `/api/send-sms`,
+        method : "post",
+    },
     logout_user : {
         url : `/api/userLogout`,
         method : 'get'

@@ -28,11 +28,65 @@ const PaystackPayment = ({ totalAmount, cartItems }) => {
       toast.error(error.message || "An error occurred while clearing the cart");
     }
   };
+  const handleSendEmail = async () => {
+    try {
+      const response = await fetch(SummaryApi.sendReceiptEmail.url,{
+        method:SummaryApi.sendReceiptEmail.method,
+        credentials: "include",
+        headers:{
+          "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+          email,
+          name,
+          cartItems,
+          totalAmount,
+        })
+
+      })
+      const data = await response.json();
+      if(!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to send email: ${errorMessage}`);
+      }
+      toast.success(data.message);
+    }catch (error){
+      console.error("Error sending receipt email:", error.message);
+      toast.error(error.message || "An error occurred while sending the receipt email");
+    }
+  }
+  // const handleSendSms = async () => {
+  //   try {
+  //     const response = await fetch(SummaryApi.sendSmsUrl.url,{
+  //       method:SummaryApi.sendSmsUrl.method,
+  //       credentials: "include",
+  //       headers:{
+  //         "Content-Type": "application/json"
+  //       },
+  //       body:JSON.stringify({phone, name, cartItems, totalAmount})
+  //     })
+  //
+  //
+  //     if(!response.ok) {
+  //       const errorMessage = await response.text();
+  //       throw new Error(`Failed to send email: ${errorMessage}`);
+  //     }
+  //     const data = await response.json();
+  //     toast.success(data.message);
+  //   }catch (error){
+  //     console.error("Failed to send SMS:", error);
+  //     alert("Failed to send SMS. Please try again.");
+  //   }
+  // }
 
   const onSuccess = async () => {
+    await handleSendEmail();
+    // await handleSendSms()
     await clearUserCart();
     window.location.href = "/cart/checkout/success";
-    // <Navigate to="/cart/checkout/success" replace />
+
+
+    // await handleSendSms()
   };
 
   const componentProps = {
