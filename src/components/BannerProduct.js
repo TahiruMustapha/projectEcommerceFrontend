@@ -9,6 +9,8 @@ import image2Mobile from '../assest/banner/im2_mobile.webp'
 import image3Mobile from '../assest/banner/img3_mobile.webp'
 import image4Mobile from '../assest/banner/img4_mobile.webp'
 import image5Mobile from '../assest/banner/img5_mobile.webp'
+import banner1 from "../assest/banner/banner1.png"
+import banner2 from "../assest/banner/banner2.png"
 import { FaAngleRight } from "react-icons/fa6";
 import { FaAngleLeft } from "react-icons/fa6";
 
@@ -21,7 +23,9 @@ const BannerProduct = () => {
         image2,
         image3,
         image4,
-        image5
+        image5,
+        banner1,
+        banner2,
     ]
 
     const mobileImages = [
@@ -29,7 +33,9 @@ const BannerProduct = () => {
         image2Mobile,
         image3Mobile,
         image4Mobile,
-        image5Mobile
+        image5Mobile,
+        banner1,
+        banner2,
     ]
 
     const nextImage = () =>{
@@ -59,7 +65,7 @@ const BannerProduct = () => {
 
   return (
     <div className='container mx-auto px-4 rounded '>
-        <div className='h-56 md:h-80 w-full bg-slate-200 relative'>
+        <div className='h-56 md:h-[27rem] w-full bg-slate-200 relative'>
 
                 <div className='absolute z-10 h-full w-full md:flex items-center hidden '>
                     <div className=' flex justify-between w-full text-2xl'>
